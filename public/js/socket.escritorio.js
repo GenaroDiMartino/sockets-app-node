@@ -18,7 +18,7 @@ $('h1').text('Escritorio ' + escritorio);
 
 $('button').on('click', () => {
 
-    socket.emit('atenderTicket', escritorio, (resp) => {
+    socket.emit('atenderTicket', { escritorio }, (resp) => {
 
         if (resp === 'No hay tickets') {
             label.text(resp);
@@ -28,5 +28,4 @@ $('button').on('click', () => {
 
         label.text('Ticket ' + resp.numero);
     });
-
 });
